@@ -25,9 +25,14 @@ module Text2isometric
       system "cp -v #{script_path} #{dest_path}"
     end
 
+    desc "free TEXT", "Generate text in text value"
+    def free(text)
+      create_isometric(text, text)
+    end
+
     desc "side TEXT", "Generate text in side"
     def side(text)
-      create_isometric(text, 'rotate(-30deg) skewX(-30deg) skewY(0deg)')
+      create_isometric(text, 'rotate(-15deg) skew(-15deg, -15deg) translate(50%, 100%)')
     end
 
     desc "plane TEXT", "Generate text in plane"
@@ -35,9 +40,10 @@ module Text2isometric
       create_isometric(text, 'rotate(-60deg) skew(30deg, 30deg)')
     end
 
-    desc "front TEXT", "Generate text in -30deg"
+    desc "front TEXT", "Generate text in front"
     def front(text)
       create_isometric(text, 'rotate(15deg) skew(15deg, 15deg)')
+      #rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%)
     end
 
     desc "top TEXT", "Generate text in -30deg"

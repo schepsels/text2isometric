@@ -1,4 +1,4 @@
-set myAxis to choose from list {"side", "plane", "front", "top"} with prompt "Please select which sound you like best" default items "side"
+set myAxis to choose from list {"side", "plane", "front", "top", "free"} with prompt "Please select which sound you like best" default items "side"
 
 display dialog "Enter text" default answer myAxis
 set myText to text returned of the result
