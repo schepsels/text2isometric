@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset='UTF-8'><meta name="robots" content="noindex">
-<style >
-/**CSS3 Isometric Text Effect created by Duncan Midwinter.*/
+<style>
 
 body {
   width: 1000px;
@@ -13,25 +11,36 @@ body {
 }
 
 h1 {
-  font: 80px 'Arial';
+  font: <%= r['size'] %>px <%= r['font'] %>;
   background-color: none;
   position: relative;
   top: -30px;
   left: 100px;
-  color: black;
-  text-shadow: 0 0 3px rgba(0, 0, 128, 0.25);
+  color: <%= r['color'] %>;
+  xxxxtext-shadow: 0 0 3px rgba(0, 0, 128, 0.25);
   z-index: 50;
 
-  /* 60deg,-30deg */
-  -webkit-transform: skew(<%= r['transform'] %>);
-  -moz-transform: skew(<%= r['transform'] %>);
-  -o-transform: skew(<%= r['transform'] %>);
-  -ms-transform: skew(<%= r['transform'] %>);
-  transform: skew(<%= r['transform'] %>);
+  transform: <%= r['transform'] %>;
 }
 </style>
 </head>
 <body>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>

@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Text2isometric::VERSION
   spec.authors       = ["Pim Snel"]
   spec.email         = ["pim@lingewoud.nl"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Generates isometric images from text}
+  spec.description   = %q{Generates isometric images from text using webkit}
   spec.homepage      = ""
   spec.license       = "MIT"
 
