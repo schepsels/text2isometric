@@ -37,7 +37,8 @@ module Text2isometric
 
     desc "plane TEXT", "Generate text in plane"
     def plane(text)
-      create_isometric(text, 'rotate(-60deg) skew(30deg, 30deg)')
+      #create_isometric(text, 'rotate(-60deg) skew(30deg, 30deg)')
+      create_isometric(text, 'skew(60deg,-30deg)')
     end
 
     desc "front TEXT", "Generate text in front"
