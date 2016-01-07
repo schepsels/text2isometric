@@ -4,13 +4,13 @@ require 'erb'
 
 module Text2isometric
   class Commands < Thor
-    class_option :verbose, :desc => 'Be more verbose', :type => :boolean, :aliases => '-v'
+    class_option :color, :desc => 'text color css compatible, default black', :aliases => '-c', :type => :string
+    class_option :size, :desc => 'text size in pixels, default 80', :aliases => '-s', :type => :numeric
+    class_option :font, :desc => 'Font, default Arial', :aliases => '-f', :type => :string
 
     def initialize(*args)
       super
       @output_dir = File.expand_path('~') + "/isometric"
-      p __FILE__
-      #@verbose = true if options[:verbose]
     end
 
     desc "version", "Display version"
@@ -24,13 +24,6 @@ module Text2isometric
       dest_path = File.expand_path('~') + "/Library/Scripts/Applications/OmniGraffle/"
       system "cp -v #{script_path} #{dest_path}"
     end
-
-=begin
-  desc "free TEXT", "Generate text in text value"
-    def free(text)
-      create_isometric(text, text)
-    end
-=end
 
     desc "side TEXT", "Generate text in side"
     def side(text)
@@ -76,18 +69,8 @@ module Text2isometric
                 ....|....          l
                     .         p
 
-    +--------+
-   /        /|
-  / t o p  / |e
- +--------+  d
- |        | i|    e
- | front  |s +   n
- |        | /  a
- |        |/  l
- +--------+ p
+
 CUBE
-
-
       print cube
     end
 
@@ -98,11 +81,25 @@ CUBE
       system "mkdir -p #{@output_dir}"
 
       r = {}
+      if options[:size]
+        r['size'] = options[:size]
+      else
+        r['size'] = '80'
+      end
+
+      unless options[:font].empty?
+        r['color'] = options[:color]
+      else
+        r['color'] = 'black'
+      end
+
+      unless options[:font].empty?
+        r['font'] = options[:font]
+      else
+        r['font'] = 'black'
+      end
+
       r['text'] = text
-      r['color'] = 'black'
-      r['size'] = '80'
-      r['font'] = 'Arial'
-#      r['transform'] = axis_cmd
       r['transform_class'] = axis
 
       erb_path =  File.expand_path('../../templates/text.html.erb',__FILE__)

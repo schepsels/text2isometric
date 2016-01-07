@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Pim Snel"]
   spec.email         = ["pim@lingewoud.nl"]
   spec.summary       = %q{Generates isometric images from text}
-  spec.description   = %q{Generates isometric images from text using webkit}
-  spec.homepage      = ""
+  spec.description   = %q{Generates isometric images from text using webkit2png}
+  spec.homepage      = "https://github.com/mipmip/text2isometric"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

@@ -1,9 +1,11 @@
-# Text2isometric
+# text2isometric
 
 Experimental gem and applescript for OmniGraffle to generate isometric
 texts. Motivation was the realization that OmniGraffle is not able to
 create 3d texts compatible with the nice AWS 3D stencils I wanted to
 use.
+
+![image](http://picdrop.t3lab.com/98meGnW0WM.png)
 
 It's a rather complex stack of technologies:
 
@@ -15,53 +17,64 @@ It's a rather complex stack of technologies:
 
 Like I said is experimental. If you can make it better please help...
 
-## Images
+## Compatible Stencils
 
-For now I can create this:
+- Included is a blue isometric grid
+- [AWS 3D](https://stenciltown.omnigroup.com/#stencil=aws-3d)
+- [Three Dimensional](https://stenciltown.omnigroup.com/#stencil=three-dimensional)
+- [Isometric](https://www.graffletopia.com/stencils/533)
 
-![image](http://picdrop.t3lab.com/z3BupEf9oT.png)
 
-I want to create this:
-
-![image](http://picdrop.t3lab.com/nhM9DVEbWP.png)
-
-We'll get there.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+### install gem
 
-```ruby
-gem 'text2isometric'
+```
+$ gem install text2isometric
 ```
 
-And then execute:
 
-    $ bundle
+### install webkit2png & imagemagick
 
-Or install it yourself as:
+```
+$ brew install webkit2png
+$ brew install imagemagick
+```
 
-    $ gem install text2isometric
+### install applescript
 
-## Usage
+*Warning!!* In templates you will find an applescript called isometric-text.scpt.
+You should tweak this to make it work on your computer.
+
+```
+$ text2isometric instgrafflescript
+```
+
+
+## Gem Usage
 
 The text2isometric script has these options
 
 ```
+$ text2isometric
+
 Commands:
+  text2isometric cube               # show cube with directions
+  text2isometric front TEXT         # Generate text in front
   text2isometric help [COMMAND]     # Describe available commands or one specific command
   text2isometric instgrafflescript  # install omnigraffle applescript
-  text2isometric cube               # show cube with directions
-  text2isometric free TEXT          # Generate text in text value
-  text2isometric front TEXT         # Generate text in front
   text2isometric plane TEXT         # Generate text in plane
   text2isometric side TEXT          # Generate text in side
   text2isometric top TEXT           # Generate text in top
   text2isometric version            # Display version
+
+Options:
+  -c, [--color=COLOR]  # text color css compatible, default black
+  -s, [--size=N]       # text size in pixels, default 80
+  -f, [--font=FONT]    # Font, default Arial
 ```
 
-In templates you will find an applescript called isometric-text.scpt.
-You should tweak this to make it work on your computer.
 
 Maybe someday this will be more usable. Or the people at omnigroup will
 add this functionality natively. I hope the last.

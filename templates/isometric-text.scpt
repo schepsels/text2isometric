@@ -3,8 +3,10 @@ set myAxis to choose from list {"side", "plane", "front", "top", "free"} with pr
 display dialog "Enter text" default answer myAxis
 set myText to text returned of the result
 
---log "/Users/pim/.rvm/bin/rvm default do text2isometric " & myAxis & " '" & myText & "'"
-do shell script "/Users/pim/.rvm/bin/rvm default do text2isometric " & myAxis & " '" & myText & "'"
+display dialog "Enter text" default answer "--size 80 --color black --font 'Arial'"
+set myOptions to text returned of the result
+
+do shell script "/Users/pim/.rvm/bin/rvm default do text2isometric " & myAxis & " '" & myText & "' " & myOptions
 
 tell application "Image Events"
 	set img to open "/Users/pim/test2isometric/isometric.png"
