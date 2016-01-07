@@ -25,31 +25,31 @@ module Text2isometric
       system "cp -v #{script_path} #{dest_path}"
     end
 
-    desc "free TEXT", "Generate text in text value"
+=begin
+  desc "free TEXT", "Generate text in text value"
     def free(text)
       create_isometric(text, text)
     end
+=end
 
     desc "side TEXT", "Generate text in side"
     def side(text)
-      create_isometric(text, 'rotate(-15deg) skew(-15deg, -15deg) translate(50%, 100%)')
+      create_isometric(text, 'side')
     end
 
     desc "plane TEXT", "Generate text in plane"
     def plane(text)
-      #create_isometric(text, 'rotate(-60deg) skew(30deg, 30deg)')
-      create_isometric(text, 'skew(60deg,-30deg)')
+      create_isometric(text, 'plane')
     end
 
     desc "front TEXT", "Generate text in front"
     def front(text)
-      create_isometric(text, 'rotate(15deg) skew(15deg, 15deg)')
-      #rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%)
+      create_isometric(text, 'front')
     end
 
-    desc "top TEXT", "Generate text in -30deg"
+    desc "top TEXT", "Generate text in top"
     def top(text)
-      create_isometric(text, 'rotate(45deg) skew(-15deg, -15deg)')
+      create_isometric(text, 'top')
     end
 
     desc "cube", "show cube with directions"
@@ -75,14 +75,25 @@ module Text2isometric
            .....    |    .....          a
                 ....|....          l
                     .         p
+
+    +--------+
+   /        /|
+  / t o p  / |e
+ +--------+  d
+ |        | i|    e
+ | front  |s +   n
+ |        | /  a
+ |        |/  l
+ +--------+ p
 CUBE
+
 
       print cube
     end
 
     private
 
-    def create_isometric(text, axis_cmd)
+    def create_isometric(text, axis)
       system "rm -Rf #{@output_dir}"
       system "mkdir -p #{@output_dir}"
 
@@ -91,7 +102,8 @@ CUBE
       r['color'] = 'black'
       r['size'] = '80'
       r['font'] = 'Arial'
-      r['transform'] = axis_cmd
+#      r['transform'] = axis_cmd
+      r['transform_class'] = axis
 
       erb_path =  File.expand_path('../../templates/text.html.erb',__FILE__)
       template = File.read(erb_path)

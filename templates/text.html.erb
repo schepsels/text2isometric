@@ -1,50 +1,87 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<style type="text/css" media="screen">
 
 body {
-  width: 1000px;
-  position: relative;
-  background-color: none;
-  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  font-family: sans-serif;
 }
 
-h1 {
-  font: <%= r['size'] %>px <%= r['font'] %>;
-  background-color: none;
-  position: relative;
-  top: -30px;
-  left: 100px;
-  color: <%= r['color'] %>;
-  xxxxtext-shadow: 0 0 3px rgba(0, 0, 128, 0.25);
-  z-index: 50;
-
-  transform: <%= r['transform'] %>;
+.cube {
+  position: absolute;
+  top: 90px;
+  left: 360px;
 }
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+/*  border: 1px black solid;*/
+  xxxoverflow: hidden;
+  xxxfont-family: Arial;
+  xxxfont-size: 24px;
+}
+
+.plane {
+  top: 0;
+  left: 86px;
+  background: none;
+  color: #999;
+  /*    -webkit-transform: matrix(0.8965754721680534, -0.5176380902050416, 0.8965754721680536, 0.5176380902050415, 0, 0);*/
+  -webkit-transform: rotate(-30deg) skewX(30deg) skewY(0deg) scaleY(0.87);
+  -ms-transform: rotate(-30deg) skewX(30deg) skewY(0deg) scaleY(0.87);
+  -moz-transform: rotate(-30deg) skewX(30deg) skewY(0deg) scaleY(0.87);
+  -o-transform: rotate(-30deg) skewX(30deg) skewY(0deg) scaleY(0.87);
+  transform: rotate(-30deg) skewX(30deg) skewY(0deg) scaleY(0.87);
+}
+
+.front {
+  top: 1065px;
+  left: 0;
+  background: none;
+  color: #333;
+  /*    -webkit-transform: matrix(0.8965754721680536, 0.5176380902050415, 0, 1.035276180410083, 0, 0);*/
+  -webkit-transform: rotate(30deg) skewX(30deg) skewY(0deg);
+  -ms-transform: rotate(30deg) skewX(30deg) skewY(0deg);
+  -moz-transform: rotate(30deg) skewX(30deg) skewY(0deg);
+  -o-transform: rotate(30deg) skewX(30deg) skewY(0deg);
+  transform: rotate(30deg) skewX(30deg) skewY(0deg);
+}
+
+.side {
+  top: 1065px;
+  left: 172px;
+  background: none;
+  color: #666;
+  /*    -webkit-transform: matrix(0.8965754721680536, -0.5176380902050415, 0, 1.035276180410083, 0, 0);*/
+  -webkit-transform: rotate(-30deg) skewX(-30deg) skewY(0deg);
+  -ms-transform: rotate(-30deg) skewX(-30deg) skewY(0deg);
+  -moz-transform: rotate(-30deg) skewX(-30deg) skewY(0deg);
+  -o-transform: rotate(-30deg) skewX(-30deg) skewY(0deg);
+  transform: rotate(-30deg) skewX(-30deg) skewY(0deg);
+}
+
+.top {
+  top: 1065px;
+  left: 172px;
+  background: none;
+  color: #666;
+}
+
 </style>
 </head>
 <body>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<h1><%= r['text'] %></h1>
-</body></html>
+
+<div class="face <%= r['transform_class'] %> " style="color: <%= r['color'] %>; font:<%= r['size'] %>px <%= r['font'] %>;">
+  <%= r['text'] %>
+</div>
+
+</body>
+</html>

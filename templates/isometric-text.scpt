@@ -15,6 +15,6 @@ end tell
 
 tell application id "com.omnigroup.OmniGraffle6"
 	tell canvas of front window
-		make new shape at end of graphics with properties {fill:no fill, draws stroke:false, draws shadow:false, image scale:1, size:{my_x, my_y}, image sizing:stretched, image:"/Users/pim/isometric/isometric.png"}
+		make new shape at end of graphics with properties {fill:no fill, draws stroke:false, draws shadow:false, image scale:1, size:{my_x, my_y}, image:"/Users/pim/isometric/isometric.png"}
 	end tell
 end tell
